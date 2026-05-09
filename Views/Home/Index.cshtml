@@ -1,0 +1,219 @@
+﻿@{
+    ViewData["Title"] = "Monobase - Secure Database Platform";
+}
+
+<style>
+
+    .hero-wrapper{
+        min-height:85vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:40px 20px;
+
+        background:
+            radial-gradient(circle at top, #0b1220, #060913);
+    }
+
+    .hero-card{
+        width:100%;
+        max-width:900px;
+
+        background:rgba(15,23,42,.82);
+        border:1px solid rgba(255,255,255,.06);
+
+        backdrop-filter:blur(18px);
+
+        border-radius:34px;
+
+        padding:60px 50px;
+
+        text-align:center;
+
+        box-shadow:
+            0 30px 90px rgba(0,0,0,.55);
+
+        animation:fadeIn .6s ease;
+    }
+
+    .logo{
+        width:90px;
+        height:90px;
+
+        margin:0 auto 25px auto;
+
+        border-radius:28px;
+
+        background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        font-size:2rem;
+        color:white;
+
+        box-shadow:0 18px 45px rgba(37,99,235,.35);
+    }
+
+    .title{
+        font-size:3rem;
+        font-weight:900;
+        color:white;
+        margin-bottom:12px;
+        letter-spacing:-1px;
+    }
+
+    .subtitle{
+        font-size:1.1rem;
+        color:#94a3b8;
+        max-width:600px;
+        margin:0 auto 30px auto;
+        line-height:1.7;
+    }
+
+    .btn-custom{
+        padding:14px 22px;
+        border-radius:18px;
+        font-weight:700;
+        border:none;
+        transition:.2s;
+        text-decoration:none;
+        display:inline-block;
+    }
+
+    .btn-primary-custom{
+        background:linear-gradient(135deg,#2563eb,#1d4ed8);
+        color:white;
+        box-shadow:0 10px 30px rgba(37,99,235,.25);
+    }
+
+    .btn-primary-custom:hover{
+        transform:translateY(-2px);
+        box-shadow:0 18px 50px rgba(37,99,235,.35);
+    }
+
+    .btn-outline-custom{
+        background:transparent;
+        border:1px solid rgba(255,255,255,.15);
+        color:#cbd5e1;
+        margin-left:10px;
+    }
+
+    .btn-outline-custom:hover{
+        background:rgba(255,255,255,.06);
+        color:white;
+    }
+
+    .features{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        gap:18px;
+        margin-top:45px;
+    }
+
+    .feature-box{
+        background:rgba(17,24,39,.7);
+        border:1px solid rgba(255,255,255,.05);
+
+        padding:20px;
+        border-radius:20px;
+
+        transition:.2s;
+
+        text-align:left;
+    }
+
+    .feature-box:hover{
+        transform:translateY(-5px);
+        border-color:rgba(37,99,235,.25);
+    }
+
+    .feature-box h5{
+        color:#60a5fa;
+        margin-bottom:8px;
+        font-weight:700;
+    }
+
+    .feature-box p{
+        color:#94a3b8;
+        margin:0;
+        font-size:.9rem;
+        line-height:1.5;
+    }
+
+    @@keyframes fadeIn{
+        from{opacity:0; transform:translateY(10px);}
+        to{opacity:1; transform:translateY(0);}
+    }
+
+    @@media(max-width:768px){
+        .hero-card{
+            padding:40px 25px;
+        }
+
+        .title{
+            font-size:2.3rem;
+        }
+    }
+
+</style>
+
+<div class="hero-wrapper">
+
+    <div class="hero-card">
+
+        <div class="logo">
+            <i class="fa-solid fa-database"></i>
+        </div>
+
+        <div class="title">
+            Monobase
+        </div>
+
+        <div class="subtitle">
+            Modern, güvenli ve ölçeklenebilir database yönetim platformu.
+            <br />
+            Email doğrulama, kullanıcı sistemi ve gerçek zamanlı altyapı ile geliştirilmiştir.
+        </div>
+
+        <div>
+
+            <a asp-controller="Auth" asp-action="Register"
+               class="btn-custom btn-primary-custom">
+
+                Başla
+
+            </a>
+
+            <a asp-controller="Auth" asp-action="Login"
+               class="btn-custom btn-outline-custom">
+
+                Giriş Yap
+
+            </a>
+
+        </div>
+
+        <div class="features">
+
+            <div class="feature-box">
+                <h5>🔐 Güvenli Sistem</h5>
+                <p>Email doğrulama + session tabanlı kullanıcı yönetimi.</p>
+            </div>
+
+            <div class="feature-box">
+                <h5>⚡ Yüksek Performans</h5>
+                <p>Optimize Entity Framework yapısı ile hızlı veri işlemleri.</p>
+            </div>
+
+            <div class="feature-box">
+                <h5>📧 Doğrulama Sistemi</h5>
+                <p>Kayıt sonrası güvenli aktivasyon süreci.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

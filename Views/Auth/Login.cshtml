@@ -1,0 +1,253 @@
+@{
+    ViewData["Title"] = "Giriş Yap";
+}
+
+<style>
+
+    .auth-wrapper{
+        min-height:75vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background: radial-gradient(circle at top, #0b1220, #060913);
+        padding:20px;
+    }
+
+    .auth-card{
+        width:100%;
+        max-width:520px;
+
+        background:rgba(15,23,42,.82);
+        border:1px solid rgba(255,255,255,.06);
+
+        backdrop-filter:blur(18px);
+
+        border-radius:34px;
+
+        overflow:hidden;
+
+        box-shadow:
+            0 25px 80px rgba(0,0,0,.45);
+    }
+
+    .auth-header{
+        padding:38px 34px 24px 34px;
+        text-align:center;
+    }
+
+    .auth-logo{
+        width:78px;
+        height:78px;
+
+        border-radius:24px;
+
+        margin:0 auto 18px auto;
+
+        background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        font-size:1.6rem;
+        color:white;
+
+        box-shadow:
+            0 15px 35px rgba(37,99,235,.35);
+    }
+
+    .auth-title{
+        font-size:2rem;
+        font-weight:800;
+        color:white;
+        margin-bottom:8px;
+    }
+
+    .auth-subtitle{
+        color:#94a3b8;
+        font-size:.95rem;
+        margin:0;
+    }
+
+    .auth-body{
+        padding:30px 34px 36px 34px;
+    }
+
+    .form-label{
+        color:#cbd5e1;
+        font-size:.9rem;
+        margin-bottom:10px;
+        font-weight:600;
+    }
+
+    .form-control-modern{
+        background:#111827 !important;
+        border:1px solid rgba(255,255,255,.07) !important;
+
+        color:white !important;
+
+        border-radius:18px;
+
+        padding:15px 18px;
+
+        transition:.2s;
+    }
+
+    .form-control-modern::placeholder{
+        color:#64748b;
+    }
+
+    .form-control-modern:focus{
+        border-color:#2563eb !important;
+        box-shadow:0 0 0 4px rgba(37,99,235,.12) !important;
+    }
+
+    .btn-auth{
+        width:100%;
+
+        border:none;
+
+        border-radius:18px;
+
+        padding:15px;
+
+        background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+        color:white;
+
+        font-weight:800;
+
+        transition:.2s;
+
+        box-shadow:0 10px 30px rgba(37,99,235,.25);
+    }
+
+    .btn-auth:hover{
+        transform:translateY(-2px);
+        box-shadow:0 15px 40px rgba(37,99,235,.35);
+    }
+
+    .auth-link{
+        color:#60a5fa;
+        text-decoration:none;
+        font-weight:700;
+    }
+
+    .auth-link:hover{
+        color:white;
+    }
+
+    .error-box{
+        background:rgba(239,68,68,.12);
+        border:1px solid rgba(239,68,68,.18);
+        color:#fecaca;
+
+        border-radius:18px;
+        padding:14px;
+        margin-bottom:18px;
+        font-size:.9rem;
+    }
+
+    .divider{
+        height:1px;
+        background:rgba(255,255,255,.06);
+        margin:22px 0;
+    }
+
+    @@media(max-width:576px){
+        .auth-card{
+            border-radius:28px;
+        }
+
+        .auth-header,
+        .auth-body{
+            padding-left:22px;
+            padding-right:22px;
+        }
+
+        .auth-title{
+            font-size:1.7rem;
+        }
+    }
+
+</style>
+
+<div class="auth-wrapper">
+
+    <div class="auth-card">
+
+        <!-- HEADER -->
+        <div class="auth-header">
+
+            <div class="auth-logo">
+                <i class="fa-solid fa-right-to-bracket"></i>
+            </div>
+
+            <h1 class="auth-title">
+                Tekrar Hoş Geldiniz
+            </h1>
+
+            <p class="auth-subtitle">
+                Monobase hesabınıza giriş yapın
+            </p>
+
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- BODY -->
+        <div class="auth-body">
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-success border-0 shadow-sm">
+                    @ViewBag.Message
+                </div>
+            }
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="error-box">
+                    <i class="fa-solid fa-circle-exclamation me-2"></i>
+                    @ViewBag.Error
+                </div>
+            }
+
+            <form asp-action="Login" method="post">
+
+                <div class="mb-4">
+                    <label class="form-label">E-Posta Adresi</label>
+                    <input type="email"
+                           name="email"
+                           class="form-control form-control-modern"
+                           placeholder="ornek@mail.com"
+                           required />
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Şifre</label>
+                    <input type="password"
+                           name="password"
+                           class="form-control form-control-modern"
+                           placeholder="••••••••"
+                           required />
+                </div>
+
+                <button type="submit" class="btn-auth">
+                    Giriş Yap
+                </button>
+
+            </form>
+
+            <p class="text-center mt-4 mb-0 text-secondary">
+                Hesabınız yok mu?
+                <a asp-action="Register" class="auth-link ms-1">
+                    Hemen Kaydol
+                </a>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
