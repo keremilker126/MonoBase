@@ -19,23 +19,3 @@ MonoBase, "Hizmet Olarak Veritabanı" (DBaaS) mantığını yerel veya özel sun
 * **İzole Veri Alanları:** Her kullanıcının verisi kendi fiziksel SQLite dosyasında (`.db`) güvenle saklanır.
 * **Full CRUD Desteği:** Veri ekleme (POST), okuma (GET), güncelleme (PUT) ve silme (DELETE) işlemleri için hazır uç noktalar.
 * **Performanslı & Hafif:** SQLite'ın gücünü arkasına alarak düşük kaynak tüketimi ve yüksek hız sunar.
-
----
-
-## 🛠️ Mimari Yapı
-
-MonoBase iki temel bileşenden oluşur:
-1.  **MonoBase API:** Veritabanı işlemlerini yöneten merkezi motor.
-2.  **Client Application:** API'yi tüketen (Örn: Not Defteri uygulaması) son kullanıcı arayüzü.
-
----
-
-## 🚀 Hızlı Başlangıç
-
-### 1. Kurulum
-Projeyi klonlayın ve gerekli bağımlılıkları yükleyin:
-
-```bash
-git clone [https://github.com/kullaniciadi/monobase.git](https://github.com/kullaniciadi/monobase.git)
-cd monobase
-dotnet restore
