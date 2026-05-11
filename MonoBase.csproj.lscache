@@ -21,7 +21,7 @@ ProjectAssetsFile=<PATH>obj/project.assets.json
 RootNamespace=MonoBase
 RunAnalyzers=
 RunAnalyzersDuringLiveAnalysis=
-SolutionPath=*Undefined*
+SolutionPath=<PATH>MonoBase.sln
 TargetFrameworkIdentifier=.NETCoreApp
 TargetPath=<PATH>bin/Debug/net10.0/MonoBase.dll
 TargetRefPath=<PATH>obj/Debug/net10.0/ref/MonoBase.dll
@@ -56,6 +56,7 @@ TemporaryDependencyNodeTargetIdentifier=net10.0
 
 [sourceFiles]
 Controllers/
+ ApiDataController.cs
  AuthController.cs
  DatabaseController.cs
  HomeController.cs
@@ -63,12 +64,10 @@ Data/
  AppDbContext.cs
  UserDbContext.cs
 Migrations/
- 20260508191017_monobase.cs
- 20260508191017_monobase.Designer.cs
- 20260508193141_monobase2.cs
- 20260508193141_monobase2.Designer.cs
- 20260509114832_monobase3.cs
- 20260509114832_monobase3.Designer.cs
+ 20260511083420_InitialCreate.cs
+ 20260511083420_InitialCreate.Designer.cs
+ 20260511192103_monobase.cs
+ 20260511192103_monobase.Designer.cs
  AppDbContextModelSnapshot.cs
 Models/
  ApplicationUser.cs
@@ -396,6 +395,7 @@ Services/
  System.Xml.XPath.XDocument.dll
  WindowsBase.dll
 <NUGET>/
+ bcrypt.net-next/4.2.0/lib/net10.0/BCrypt-Net-Next.dll
  microsoft.data.sqlite.core/10.0.7/lib/net8.0/Microsoft.Data.Sqlite.dll
  microsoft.entityframeworkcore.abstractions/10.0.7/lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll
  microsoft.entityframeworkcore.relational/10.0.7/lib/net10.0/Microsoft.EntityFrameworkCore.Relational.dll

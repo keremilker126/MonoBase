@@ -21,33 +21,33 @@ public class DatabaseController : Controller
 
     public IActionResult Index()
     {
-        var dbPath = HttpContext.Session.GetString("UserDbPath");
+        // 1. Session'dan tam yol (C:\...) DEĞİL, sadece dosya adını (db_test.db) alıyoruz.
+        var dbFileName = HttpContext.Session.GetString("UserDbPath");
 
-        if (string.IsNullOrEmpty(dbPath))
+        if (string.IsNullOrEmpty(dbFileName))
             return RedirectToAction("Login", "Auth");
 
         try
         {
-            using var userDb = _dbService.GetUserContext(dbPath);
+            // 2. GetUserContext artık içeride Path.Combine kullanarak 
+            // Pardus'taki gerçek klasörü dosya adıyla birleştiriyor.
+            using var userDb = _dbService.GetUserContext(dbFileName);
 
+            // 3. Verileri çekiyoruz
             var collections = userDb.Collections
                 .Select(x => x.CollectionName)
                 .Distinct()
                 .OrderBy(x => x)
                 .ToList();
-            var email = HttpContext.Session.GetString("UserEmail");
-
-            var user = _context.Users
-                .FirstOrDefault(x => x.Email == email);
-
 
             return View(collections);
         }
         catch (Exception ex)
         {
-            TempData["Error"] = ex.Message;
+            // Detaylı hata mesajını terminalde görmek için:
+            Console.WriteLine($"Pardus Veritabanı Hatası: {ex.Message}");
 
-
+            TempData["Error"] = "Veritabanına erişilemedi. Lütfen tekrar giriş yapın.";
             return View(new List<string>());
         }
     }
@@ -150,7 +150,7 @@ public class DatabaseController : Controller
                 userDb.Collections.Remove(entry);
                 await userDb.SaveChangesAsync();
             }
-
+            TempData["SuccessMessage"] = "Veri başarıyla silindi!";
             return RedirectToAction("TableDetails", new { tableName = tableName });
         }
         catch (Exception ex)

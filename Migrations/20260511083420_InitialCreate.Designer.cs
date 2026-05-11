@@ -10,8 +10,8 @@ using MonoBase.Data;
 namespace MonoBase.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260508191017_monobase")]
-    partial class monobase
+    [Migration("20260511083420_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,6 +34,9 @@ namespace MonoBase.Migrations
 
                     b.Property<bool>("IsEmailConfirmed")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("LoginVerificationToken")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()

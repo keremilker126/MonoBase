@@ -1,17 +1,24 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace MonoBase.Migrations
 {
     /// <inheritdoc />
-    public partial class monobase5 : Migration
+    public partial class monobase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "CorsOrigins",
+                name: "ResetToken",
+                table: "Users",
+                type: "TEXT",
+                nullable: true);
+
+            migrationBuilder.AddColumn<DateTime>(
+                name: "ResetTokenExpires",
                 table: "Users",
                 type: "TEXT",
                 nullable: true);
@@ -21,7 +28,11 @@ namespace MonoBase.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "CorsOrigins",
+                name: "ResetToken",
+                table: "Users");
+
+            migrationBuilder.DropColumn(
+                name: "ResetTokenExpires",
                 table: "Users");
         }
     }

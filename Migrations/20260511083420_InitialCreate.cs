@@ -5,7 +5,7 @@
 namespace MonoBase.Migrations
 {
     /// <inheritdoc />
-    public partial class monobase : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,6 +20,7 @@ namespace MonoBase.Migrations
                     PasswordHash = table.Column<string>(type: "TEXT", nullable: false),
                     IsEmailConfirmed = table.Column<bool>(type: "INTEGER", nullable: false),
                     VerificationToken = table.Column<string>(type: "TEXT", nullable: true),
+                    LoginVerificationToken = table.Column<string>(type: "TEXT", nullable: true),
                     UserDbPath = table.Column<string>(type: "TEXT", nullable: true),
                     ApiKey = table.Column<string>(type: "TEXT", nullable: true)
                 },

@@ -61,11 +61,9 @@ public class AuthController : Controller
 
         if (!user.IsEmailConfirmed)
         {
-            // --- KRİTİK NOKTA: Kullanıcı onaylandığında DB oluşur ---
+            // DatabaseService artık sadece "db_isim_guid.db" dönecek şekilde güncellenmeli
             user.UserDbPath = _dbService.CreateUserDatabase(user.Email);
             user.IsEmailConfirmed = true;
-            user.VerificationToken = null; // Güvenlik için token'ı sıfırla
-
             await _context.SaveChangesAsync();
         }
 
@@ -112,4 +110,5 @@ public class AuthController : Controller
         HttpContext.Session.Clear();
         return RedirectToAction("Login");
     }
+    
 }

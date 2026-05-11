@@ -160,9 +160,7 @@
 </style>
 
 <div class="hero-wrapper">
-
     <div class="hero-card">
-
         <div class="logo">
             <i class="fa-solid fa-database"></i>
         </div>
@@ -177,26 +175,38 @@
             Email doğrulama, kullanıcı sistemi ve gerçek zamanlı altyapı ile geliştirilmiştir.
         </div>
 
-        <div>
+        <div class="action-buttons">
+            @* 1. Kontrol: Session içinde UserId var mı? *@
+            @if (Context.Session.GetInt32("UserId") == null)
+            {
+                @* Giriş yapmamış kullanıcı butonları *@
+                <a asp-controller="Auth" asp-action="Register"
+                   class="btn-custom btn-primary-custom">
+                    Başla
+                </a>
 
-            <a asp-controller="Auth" asp-action="Register"
-               class="btn-custom btn-primary-custom">
-
-                Başla
-
-            </a>
-
-            <a asp-controller="Auth" asp-action="Login"
-               class="btn-custom btn-outline-custom">
-
-                Giriş Yap
-
-            </a>
-
+                <a asp-controller="Auth" asp-action="Login"
+                   class="btn-custom btn-outline-custom">
+                    Giriş Yap
+                </a>
+            }
+            else
+            {
+                @* 2. Giriş yapmış kullanıcı için "Veritabanım" butonu *@
+                <a asp-controller="Database" asp-action="Index"
+                   class="btn-custom btn-primary-custom">
+                    <i class="fa-solid fa-server"></i> Veritabanım
+                </a>
+                
+                @* İsteğe bağlı: Çıkış yap butonu da eklenebilir *@
+                <a asp-controller="Auth" asp-action="Logout"
+                   class="btn-custom btn-outline-custom">
+                    Çıkış Yap
+                </a>
+            }
         </div>
 
         <div class="features">
-
             <div class="feature-box">
                 <h5>🔐 Güvenli Sistem</h5>
                 <p>Email doğrulama + session tabanlı kullanıcı yönetimi.</p>
@@ -211,9 +221,6 @@
                 <h5>📧 Doğrulama Sistemi</h5>
                 <p>Kayıt sonrası güvenli aktivasyon süreci.</p>
             </div>
-
         </div>
-
     </div>
-
 </div>

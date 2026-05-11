@@ -8,4 +8,7 @@ public class ApplicationUser
     public string? LoginVerificationToken { get; set; } // Giriş doğrulama kodu (2FA benzeri)
     public string? UserDbPath { get; set; } 
     public string? ApiKey { get; set; } 
+    // --- ŞİFRE SIFIRLAMA İÇİN EKLENENLER ---
+    public string? ResetToken { get; set; } // Şifre sıfırlama linkindeki kod
+    public DateTime? ResetTokenExpires { get; set; } // Kodun son kullanma tarihi
 }

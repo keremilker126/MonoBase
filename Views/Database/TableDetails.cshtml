@@ -443,57 +443,67 @@
                 else
                 {
                     <div class="table-wrapper" style="overflow-x: auto;">
-                        <table class="table-modern">
-                            <thead>
-                                <tr>
-                                    @* Dinamik Başlıklar *@
-                                    @foreach (var key in allKeys)
-                                    {
-                                        <th>@key.ToUpper()</th>
-                                    }
-                                    <th style="width: 100px;" class="text-end">İşlemler</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @for (int i = 0; i < Model.Count; i++)
-                                {
-                                    var row = Model[i];
-                                    var dataDict = deserializedRows.Count > i ? deserializedRows[i] : null;
+    <table class="table-modern">
+        <thead>
+            <tr>
+                @* 1. Sabit ID Kolonu (Her zaman dolu görünür) *@
+                <th>SİSTEM ID</th>
 
-                                    <tr>
-                                        @foreach (var key in allKeys)
-                                        {
-                                            <td>
-                                                @if (dataDict != null && dataDict.ContainsKey(key))
-                                                {
-                                                    @dataDict[key].ToString()                                                
-                                                }
-                                                else
-                                                {
-                                                    <span class="text-muted" style="font-size: 0.8em;">-</span>
-                                                }
-                                            </td>
-                                        }
-                                        <td class="text-end">
-                                            <form asp-action="DeleteRow" method="post"
-                                                  onsubmit="return confirm('Silmek istediğinize emin misiniz?')" style="display:inline;">
-                                                @Html.AntiForgeryToken()
-                                                <input type="hidden" name="id" value="@row.Id" />
-                                                <input type="hidden" name="tableName" value="@tableName" />
-                                                <button class="btn-icon btn-delete" type="submit">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
+                @* 2. Diğer Dinamik Başlıklar (JSON içindeki veriler) *@
+                @foreach (var key in allKeys.Where(k => k.ToLower() != "id" && k.ToLower() != "_id"))
+                {
+                    <th>@key.ToUpper()</th>
+                }
+                <th style="width: 100px;" class="text-end">İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                var row = Model[i];
+                var dataDict = deserializedRows.Count > i ? deserializedRows[i] : null;
+
+                <tr>
+                    @* Her zaman veritabanındaki row.Id değerini gösteren hücre *@
+                    <td style="font-family: monospace; font-size: 0.85em; color: #aaa;">
+                        @row.Id
+                    </td>
+
+                    @* Diğer dinamik verileri basan döngü *@
+                    @foreach (var key in allKeys.Where(k => k.ToLower() != "id" && k.ToLower() != "_id"))
+                    {
+                        <td>
+                            @if (dataDict != null && dataDict.ContainsKey(key))
+                            {
+                                @dataDict[key].ToString()
+                            }
+                            else
+                            {
+                                <span class="text-muted" style="font-size: 0.8em;">-</span>
+                            }
+                        </td>
+                    }
+                    <td class="text-end">
+                        <form asp-action="DeleteRow" method="post" id="delete-form-@row.Id" style="display:inline;">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="id" value="@row.Id" />
+    <input type="hidden" name="tableName" value="@tableName" />
+    
+    <button type="button" class="btn-icon btn-delete" onclick="confirmDelete('@row.Id')">
+        <i class="fa-solid fa-trash"></i>
+    </button>
+</form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
                 }
             </div>
         </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 
 document.getElementById("dynamicForm").addEventListener("submit", function (e) {
@@ -631,4 +641,39 @@ document.getElementById("dynamicForm").addEventListener("submit", function (e) {
                         .value =
                         JSON.stringify(jsonObject);
     });
+    
+    function confirmDelete(id) {
+    Swal.fire({
+        title: 'Emin misiniz?',
+        text: "Bu veriyi sildiğinizde geri alamazsınız!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#ef4444', // Modern kırmızı tonu
+        cancelButtonColor: '#64748b',  // Modern gri tonu
+        confirmButtonText: 'Evet, sil!',
+        cancelButtonText: 'Vazgeç',
+        background: '#1e293b', // Koyu tema arka planı
+        color: '#f8fafc'       // Beyaz metin rengi
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Formu programatik olarak gönderiyoruz
+            document.getElementById('delete-form-' + id).submit();
+        }
+    })
+}
 </script>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Başarılı!',
+            text: '@TempData["SuccessMessage"]',
+            timer: 2500,
+            showConfirmButton: false,
+            background: '#1e293b',
+            color: '#f8fafc'
+        });
+    </script>
+}

@@ -19,53 +19,53 @@ build_property.TargetFrameworkIdentifier = .NETCoreApp
 build_property.TargetFrameworkVersion = v10.0
 build_property.RootNamespace = MonoBase
 build_property.RootNamespace = MonoBase
-build_property.ProjectDir = C:\Users\kerem\Desktop\Proje2\MonoBase\
+build_property.ProjectDir = C:\Users\kerem\Desktop\MonoBase\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\kerem\Desktop\Proje2\MonoBase
+build_property.MSBuildProjectDirectory = C:\Users\kerem\Desktop\MonoBase
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/kerem/Desktop/Proje2/MonoBase/Views/Auth/Login.cshtml]
+[C:/Users/kerem/Desktop/MonoBase/Views/Auth/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerem/Desktop/Proje2/MonoBase/Views/Auth/Register.cshtml]
+[C:/Users/kerem/Desktop/MonoBase/Views/Auth/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerem/Desktop/Proje2/MonoBase/Views/Database/Index.cshtml]
+[C:/Users/kerem/Desktop/MonoBase/Views/Database/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YWJhc2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerem/Desktop/Proje2/MonoBase/Views/Database/TableDetails.cshtml]
+[C:/Users/kerem/Desktop/MonoBase/Views/Database/TableDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YWJhc2VcVGFibGVEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerem/Desktop/Proje2/MonoBase/Views/Home/Index.cshtml]
+[C:/Users/kerem/Desktop/MonoBase/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerem/Desktop/Proje2/MonoBase/Views/Shared/Error.cshtml]
+[C:/Users/kerem/Desktop/MonoBase/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerem/Desktop/Proje2/MonoBase/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/kerem/Desktop/MonoBase/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerem/Desktop/Proje2/MonoBase/Views/_ViewImports.cshtml]
+[C:/Users/kerem/Desktop/MonoBase/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerem/Desktop/Proje2/MonoBase/Views/_ViewStart.cshtml]
+[C:/Users/kerem/Desktop/MonoBase/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kerem/Desktop/Proje2/MonoBase/Views/Shared/_Layout.cshtml]
+[C:/Users/kerem/Desktop/MonoBase/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ent7iqohkx
